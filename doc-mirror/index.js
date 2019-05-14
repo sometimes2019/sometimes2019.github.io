@@ -6,10 +6,7 @@ const status = ['success', 'info', 'warning', 'danger']
 const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 glob(`${__dirname}/**/*.?(html|htm)`, (err, filePath) => {
-  if (err) {
-    console.error(err)
-    return
-  }
+  if (err) throw err
   console.log(filePath)
 
   const template = `
@@ -57,6 +54,6 @@ glob(`${__dirname}/**/*.?(html|htm)`, (err, filePath) => {
   `
   fs.writeFile(path.resolve(__dirname, 'index.html'), template, (err) => {
     if (err) throw err
-    console.log('文件已被保存')
+    console.log('gen code-mirror success!')
   })
 })
