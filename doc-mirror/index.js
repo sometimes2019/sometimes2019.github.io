@@ -3,7 +3,7 @@ const path = require('upath')
 const fs = require('fs')
 const moment = require('moment')
 
-const status = ['success', 'info', 'warning', 'danger']
+const status = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']
 const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 glob(`${__dirname}/**/*.?(html|htm)`, (err, filePath) => {
@@ -42,7 +42,7 @@ glob(`${__dirname}/**/*.?(html|htm)`, (err, filePath) => {
       const src = path.relative(__dirname, item)
       let title = src.slice(src.indexOf('/') + 1)
       title = title.slice(0, title.lastIndexOf('.'))
-      return `<a class="list-group-item list-group-item-${status[randomIntegerInRange(0, 3)]}" href="./${src}">${title}</a>`
+      return `<a class="list-group-item list-group-item-${status[randomIntegerInRange(0, 9000) % 8]}" href="./${src}">${title}</a>`
     }).join('\n')
     }
       </div >
