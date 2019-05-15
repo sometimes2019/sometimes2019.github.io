@@ -1,6 +1,7 @@
 const glob = require('glob')
 const path = require('upath')
 const fs = require('fs')
+const moment = require('moment')
 
 const status = ['success', 'info', 'warning', 'danger']
 const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -27,7 +28,7 @@ glob(`${__dirname}/**/*.?(html|htm)`, (err, filePath) => {
     <div class="col-md-2"></div>
     <div class="col-md-8">
       <div class="page-header">
-        <h1>DOC-MIRROR <small>one more option</small></h1>
+        <h1>DOC-MIRROR <small>Last updated at ${moment().format('YYYY-MM-DD HH:mm:ss ZZ')}</small></h1>
       </div>
     </div>
     <div class="col-md-2"></div>
