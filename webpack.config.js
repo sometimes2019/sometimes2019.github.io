@@ -8,7 +8,7 @@ module.exports = {
   entry: {
     app: './src/index.tsx'
   },
-  mode: 'development',
+  mode: 'production',
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
