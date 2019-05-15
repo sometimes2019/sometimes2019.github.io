@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "gen-doc-mirror": "node ./doc-mirror",
-    "deploy": "npm run gen-doc-mirror",
+    "deploy": "npm run gen-doc-mirror && npm run build",
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
