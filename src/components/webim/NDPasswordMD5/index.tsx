@@ -9,12 +9,15 @@ class NDPasswordMD5 extends React.Component<{}, { result: string }> {
   input: any;
   constructor(props: Readonly<{}>) {
     super(props);
+    this.state = {
+      result:''
+    };
   }
 
   componentDidMount() {
-    this.input &&
+    this.input && this.input.input
       this.setState({
-        result: this.calc(this.input.value)
+        result: this.calc(this.input.input.value)
       });
   }
   onChange = (e: { target: { value: any } }) => {
