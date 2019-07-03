@@ -8,11 +8,11 @@ import "./style.less";
 
 class DateToTimestamp extends React.Component<
   {},
-  { result: string; ms: string, initTime: string }
+  { result: string; ms: number, initTime: number }
 > {
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props);
-    const initTime = Date.now().toString()
+    const initTime = Date.now()
     this.state = {
       result: this.generateMsgTime(initTime),
       ms: initTime,
@@ -20,16 +20,16 @@ class DateToTimestamp extends React.Component<
     };
   }
 
-  onChange = time => {
+  onChange = (time: { valueOf: () => number; }) => {
     console.log(time);
-    const ms = time.valueOf().toString();
+    const ms = time.valueOf();
     this.setState({
       ms,
       result: this.generateMsgTime(ms)
     });
   };
 
-  generateMsgTime = msgTime => {
+  generateMsgTime = (msgTime: number) => {
     let seed = 1; // 防止同时发送，增加seed
     return Long.fromBits(seed++, msgTime / 1000, 0).toString();
   };

@@ -8,7 +8,7 @@ class TimestampToDate extends React.Component<
   {},
   { result: string; timeStamp: string }
 > {
-  constructor(props) {
+  constructor(props: Readonly<{}>) {
     super(props);
     this.state = {
       result: moment(0).format('YYYY-MM-DD HH:mm:ss ZZ'),
@@ -16,7 +16,7 @@ class TimestampToDate extends React.Component<
     };
   }
 
-  onChange = e => {
+  onChange = (e: { target: { value: any; }; }) => {
     const time = e.target.value;
     const timeStamp = this.getTimestamp(time).toString();
     this.setState({
@@ -25,7 +25,7 @@ class TimestampToDate extends React.Component<
     });
   };
 
-  getTimestamp = msgTime => {
+  getTimestamp = (msgTime: { toString: () => void; }) => {
     if (!msgTime) return 0;
 
     const long = Long.fromString(msgTime.toString());
